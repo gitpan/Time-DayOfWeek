@@ -7,8 +7,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
 
-This documentation refers to version 1.0.41M4ecn of 
-Time::DayOfWeek, which was released on Thu Jan 22 04:40:38:49 2004.
+This documentation refers to version 1.0.429BmYk of 
+Time::DayOfWeek, which was released on Mon Feb  9 11:48:34:46 2004.
 
 SYNOPSIS
 
@@ -28,7 +28,7 @@ SYNOPSIS
 DESCRIPTION
 
 This module just calculates the Day-of-Week for any particular
-date.  It was inspired by the clean Time::DaysInMonth module
+date.  It was inspired by the clean L<Time::DaysInMonth> module
 written by David Muir Sharnoff <muir@idiom.com>.
 
 2DO
@@ -91,11 +91,17 @@ NOTES
 
 I hope you find Time::DayOfWeek useful.  Please feel free to e-mail
 me any suggestions or coding tips or notes of appreciation 
-("app-ree-see-ay-shun").  Thank you.  TTFN.
+("app-ree-see-ay-shun").  Thank you.  Shalom.
 
 CHANGES
 
 Revision history for Perl extension Time::DayOfWeek:
+
+- 1.0.429BmYk  Mon Feb  9 11:48:34:46 2004
+
+* updated DoW param tests to turn zero month or day to one
+
+* updated POD to contain links
 
 - 1.0.41M4ecn  Thu Jan 22 04:40:38:49 2004
 
@@ -103,7 +109,7 @@ Revision history for Perl extension Time::DayOfWeek:
 
 - 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
 
-* updated and
+* removed most eccentric misspellings
 
 - 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
 
@@ -131,7 +137,8 @@ Please run:
 FILES
 
 Time::DayOfWeek requires:
-  Carp                to allow errors to croak() from calling sub
+
+L<Carp>                to allow errors to croak() from calling sub
 
 LICENSE
 

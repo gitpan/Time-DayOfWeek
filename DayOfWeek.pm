@@ -7,8 +7,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documentation refers to version 1.0.41M4ecn of 
-Time::DayOfWeek, which was released on Thu Jan 22 04:40:38:49 2004.
+This documentation refers to version 1.0.429BmYk of 
+Time::DayOfWeek, which was released on Mon Feb  9 11:48:34:46 2004.
 
 =head1 SYNOPSIS
 
@@ -28,7 +28,7 @@ Time::DayOfWeek, which was released on Thu Jan 22 04:40:38:49 2004.
 =head1 DESCRIPTION
 
 This module just calculates the Day-of-Week for any particular
-date.  It was inspired by the clean Time::DaysInMonth module
+date.  It was inspired by the clean L<Time::DaysInMonth> module
 written by David Muir Sharnoff <muir@idiom.com>.
 
 =head1 2DO
@@ -95,7 +95,7 @@ of the default month names.
 
 I hope you find Time::DayOfWeek useful.  Please feel free to e-mail
 me any suggestions or coding tips or notes of appreciation 
-("app-ree-see-ay-shun").  Thank you.  TTFN.
+("app-ree-see-ay-shun").  Thank you.  Shalom.
 
 =head1 CHANGES
 
@@ -103,13 +103,19 @@ Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
 
+=item - 1.0.429BmYk  Mon Feb  9 11:48:34:46 2004
+
+* updated DoW param tests to turn zero month or day to one
+
+* updated POD to contain links
+
 =item - 1.0.41M4ecn  Thu Jan 22 04:40:38:49 2004
 
 * made bin/dow as EXE_FILES && added named month param detection
 
 =item - 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
 
-* updated and
+* removed most eccentric misspellings
 
 =item - 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
 
@@ -139,7 +145,8 @@ Please run:
 =head1 FILES
 
 Time::DayOfWeek requires:
-  Carp                to allow errors to croak() from calling sub
+
+L<Carp>                to allow errors to croak() from calling sub
 
 =head1 LICENSE
 
@@ -161,7 +168,7 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.41M4ecn'; # major . minor . PipTimeStamp
+our $VERSION     = '1.0.429BmYk'; # major . minor . PipTimeStamp
 our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major and minor
 # See http://Ax9.Org/pt?$PTVR and `perldoc Time::PT`
 # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
@@ -178,12 +185,12 @@ my @Months = ( qw( January February March     April   May      June
                    July    August   September October November December ) );
 
 sub DoW { # calculate the day-of-the-week from the Year, Month, and Day
-  my $year = shift; $year = 2000 unless(defined $year);
-  my $mont = shift; $mont =    1 unless(defined $mont); # 1..12
-  my $daay = shift; $daay =    1 unless(defined $daay); # 1..31
+  my $year = shift; $year = 2000 unless(defined($year));
+  my $mont = shift; $mont =    1 unless(defined($mont) && $mont);  # 1..12
+  my $daay = shift; $daay =    1 unless(defined($daay) && $daay);  # 1..31
   if($mont !~ /^\d+$/) { # match a named month if param not a number 1..12
     for(my $i = 0; $i < @Months; $i++) {
-      $mont = ($i + 1) if($Months[$i] =~ /^$mont/i);
+      if($Months[$i] =~ /^$mont/i) { $mont = ($i + 1); last; }
     }
   }
   my $mndx = int((14 - $mont) / 12); 
