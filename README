@@ -3,12 +3,12 @@
 
 NAME
 
-  Time::DayOfWeek - calculate which Day-of-Week a date is
+Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
 
-  This documention refers to version 1.0.3CB7PxT of 
-    Time::DayOfWeek, which was released on Thu Dec 11 07:25:59:29 2003.
+  This documention refers to version 1.0.3CCA4sO of 
+    Time::DayOfWeek, which was released on Fri Dec 12 10:04:54:24 2003.
 
 SYNOPSIS
 
@@ -85,6 +85,10 @@ NOTES
 CHANGES
 
   Revision history for Perl extension Time::DayOfWeek:
+
+- 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
+
+  * removed indenting from POD NAME field
 
 - 1.0.3CB7PxT  Thu Dec 11 07:25:59:29 2003
 

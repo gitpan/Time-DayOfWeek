@@ -3,12 +3,12 @@
 
 =head1 NAME
 
-  Time::DayOfWeek - calculate which Day-of-Week a date is
+Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-  This documention refers to version 1.0.3CB7PxT of 
-    Time::DayOfWeek, which was released on Thu Dec 11 07:25:59:29 2003.
+  This documention refers to version 1.0.3CCA4sO of 
+    Time::DayOfWeek, which was released on Fri Dec 12 10:04:54:24 2003.
 
 =head1 SYNOPSIS
 
@@ -88,6 +88,10 @@
 
 =over 4
 
+=item - 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
+
+  * removed indenting from POD NAME field
+
 =item - 1.0.3CB7PxT  Thu Dec 11 07:25:59:29 2003
 
   * added month name data && tidied up for release
@@ -134,7 +138,7 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.3CB7PxT'; # major . minor . PipTimeStamp
+our $VERSION     = '1.0.3CCA4sO'; # major . minor . PipTimeStamp
 our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major && minor
 # See http://Ax9.org/pt?$PTVR && `perldoc Time::PT`
 # only export cnv() for 'use Time::DayOfWeek;' && all other stuff optionally
