@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# 3C7G3ht - test.pl created by Pip@CPAN.org to validate Time::DayOfWeek
+# 3C7G3ht - test.pl created by Pip@CPAN.Org to validate Time::DayOfWeek
 #     functionality.  
 #   Before `make install' is performed this script should be run with
 #     `make test'.  After `make install' it should work as `perl test.pl'.

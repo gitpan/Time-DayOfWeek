@@ -1,4 +1,4 @@
- 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.org to 
+ 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.Org to 
    simply tell what day of the week a specific date is.
 
 NAME
@@ -7,8 +7,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
 
-This documention refers to version 1.0.3CNH7Fs of 
-Time::DayOfWeek, which was released on Tue Dec 23 17:07:15:54 2003.
+This documentation refers to version 1.0.41M4WTl of 
+Time::DayOfWeek, which was released on Thu Jan 22 04:32:29:47 2004.
 
 SYNOPSIS
 
@@ -97,6 +97,10 @@ CHANGES
 
 Revision history for Perl extension Time::DayOfWeek:
 
+- 1.0.41M4WTl  Thu Jan 22 04:32:29:47 2004
+
+* made bin/dow as EXE_FILES && added named month param detection
+
 - 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
 
 * updated and
@@ -140,5 +144,5 @@ Copyleft :  I license this software under the GNU General Public
 
 AUTHOR
 
-Pip Stuart <Pip@CPAN.org>
+Pip Stuart <Pip@CPAN.Org>
 

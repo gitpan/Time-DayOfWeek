@@ -1,4 +1,4 @@
-# 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.org to 
+# 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.Org to 
 #   simply tell what day of the week a specific date is.
 
 =head1 NAME
@@ -7,8 +7,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documention refers to version 1.0.3CNH7Fs of 
-Time::DayOfWeek, which was released on Tue Dec 23 17:07:15:54 2003.
+This documentation refers to version 1.0.41M4WTl of 
+Time::DayOfWeek, which was released on Thu Jan 22 04:32:29:47 2004.
 
 =head1 SYNOPSIS
 
@@ -103,6 +103,10 @@ Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
 
+=item - 1.0.41M4WTl  Thu Jan 22 04:32:29:47 2004
+
+* made bin/dow as EXE_FILES && added named month param detection
+
 =item - 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
 
 * updated and
@@ -148,7 +152,7 @@ Copyleft :  I license this software under the GNU General Public
 
 =head1 AUTHOR
 
-Pip Stuart <Pip@CPAN.org>
+Pip Stuart <Pip@CPAN.Org>
 
 =cut
 
@@ -157,9 +161,9 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.3CNH7Fs'; # major . minor . PipTimeStamp
+our $VERSION     = '1.0.41M4WTl'; # major . minor . PipTimeStamp
 our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major and minor
-# See http://Ax9.org/pt?$PTVR and `perldoc Time::PT`
+# See http://Ax9.Org/pt?$PTVR and `perldoc Time::PT`
 # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
 our @EXPORT      =              qw( DoW                                   );
 our @EXPORT_OK   =              qw(     Dow DayOfWeek DayNames MonthNames );
@@ -177,6 +181,11 @@ sub DoW { # calculate the day-of-the-week from the Year, Month, and Day
   my $year = shift; $year = 2000 unless(defined $year);
   my $mont = shift; $mont =    1 unless(defined $mont); # 1..12
   my $daay = shift; $daay =    1 unless(defined $daay); # 1..31
+  if($mont !~ /^\d+$/) { # match a named month if param not a number 1..12
+    for(my $i = 0; $i < @Months; $i++) {
+      $mont = ($i + 1) if($Months[$i] =~ /^$mont/i);
+    }
+  }
   my $mndx = int((14 - $mont) / 12); 
   my $yshf = $year - $mndx; my $ys4h = $yshf / 400; 
   $daay += $yshf + int($ys4h) - int($ys4h * 4) + int($ys4h * 100);

@@ -3,7 +3,12 @@ use ExtUtils::MakeMaker;
 # # the contents of the Makefile that is written.
 WriteMakefile(
   'NAME'         => 'Time::DayOfWeek',
-  'VERSION_FROM' => 'DayOfWeek.pm', # finds $VERSION
+  'VERSION'      => '1.0.41M4WTl',
   'ABSTRACT'     => 'calculate which Day-of-Week a date is',
+  'AUTHOR'       => 'Pip Stuart <Pip@CPAN.Org>',
+  'EXE_FILES'    => [ 
+                    ],
+  'PREREQ_PM'    => {
+  }, # Module::Name => 1.1,
   'dist'         => { 'COMPRESS' => 'gzip', 'SUFFIX' => 'tgz' },
 );
