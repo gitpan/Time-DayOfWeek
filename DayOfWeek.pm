@@ -1,3 +1,4 @@
+#!/usr/bin/perl -w
 # 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.Org to 
 #   simply tell what day of the week a specific date is.
 
@@ -7,8 +8,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documentation refers to version 1.0.429BmYk of 
-Time::DayOfWeek, which was released on Mon Feb  9 11:48:34:46 2004.
+This documentation refers to version 1.2.4CCMRd5 of 
+Time::DayOfWeek, which was released on Sun Dec 12 22:27:39:05 2004.
 
 =head1 SYNOPSIS
 
@@ -103,6 +104,10 @@ Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
 
+=item - 1.2.4CCMRd5  Sun Dec 12 22:27:39:05 2004
+
+* updated License
+
 =item - 1.0.429BmYk  Mon Feb  9 11:48:34:46 2004
 
 * updated DoW param tests to turn zero month or day to one
@@ -151,11 +156,12 @@ L<Carp>                to allow errors to croak() from calling sub
 =head1 LICENSE
 
 Most source code should be Free!
-  Code I have lawful authority over is and shall be!
-Copyright: (c) 2003, Pip Stuart.  All rights reserved.
-Copyleft :  I license this software under the GNU General Public
-  License (version 2).  Please consult the Free Software Foundation
-  (http://www.fsf.org) for important information about your freedom.
+  Code I have lawful authority over is && shall be!
+Copyright: (c) 2003-2004, Pip Stuart.
+Copyleft : This software is licensed under the GNU General Public
+  License (version 2), && as such comes with NO WARRANTY.  Please
+  consult the Free Software Foundation (http://FSF.Org) for
+  important information about your freedom.
 
 =head1 AUTHOR
 
@@ -168,9 +174,10 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.429BmYk'; # major . minor . PipTimeStamp
+our $VERSION     = '1.2.4CCMRd5'; # major . minor . PipTimeStamp
 our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major and minor
-# See http://Ax9.Org/pt?$PTVR and `perldoc Time::PT`
+# Please see `perldoc Time::PT` for an explanation of $PTVR.
+
 # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
 our @EXPORT      =              qw( DoW                                   );
 our @EXPORT_OK   =              qw(     Dow DayOfWeek DayNames MonthNames );
