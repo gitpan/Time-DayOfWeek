@@ -7,8 +7,8 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documentation refers to version 1.0.41M4WTl of 
-Time::DayOfWeek, which was released on Thu Jan 22 04:32:29:47 2004.
+This documentation refers to version 1.0.41M4ecn of 
+Time::DayOfWeek, which was released on Thu Jan 22 04:40:38:49 2004.
 
 =head1 SYNOPSIS
 
@@ -103,7 +103,7 @@ Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
 
-=item - 1.0.41M4WTl  Thu Jan 22 04:32:29:47 2004
+=item - 1.0.41M4ecn  Thu Jan 22 04:40:38:49 2004
 
 * made bin/dow as EXE_FILES && added named month param detection
 
@@ -161,7 +161,7 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.41M4WTl'; # major . minor . PipTimeStamp
+our $VERSION     = '1.0.41M4ecn'; # major . minor . PipTimeStamp
 our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major and minor
 # See http://Ax9.Org/pt?$PTVR and `perldoc Time::PT`
 # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally

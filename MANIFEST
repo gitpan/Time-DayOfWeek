@@ -1,6 +1,7 @@
 DayOfWeek.pm
 MANIFEST
 test.pl
+bin/dow
 MANIFEST.SKIP
 README
 Makefile.PL
