@@ -7,123 +7,138 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
 
-  This documention refers to version 1.0.3CCA4sO of 
-    Time::DayOfWeek, which was released on Fri Dec 12 10:04:54:24 2003.
+This documention refers to version 1.0.3CNH7Fs of 
+Time::DayOfWeek, which was released on Tue Dec 23 17:07:15:54 2003.
 
 SYNOPSIS
 
-    use Time::DayOfWeek;
-    
-    my $year  = 2003;
-    my $month =   12;
-    my $day   =    7;
-    print 'The Day-of-Week of $month/$day/$year is: ', 
-      DayOfWeek($year, $month, $day), "\n";
-    print 'The 3-letter abbreviation of the Dow is: ', 
-      Dow($year, $month, $day), "\n";
-    print 'The 0-based index of the DoW is: ', 
-      DoW($year, $month, $day), "\n";
+  use Time::DayOfWeek qw(:dow);
+  
+  my $year  = 2003;
+  my $month =   12;
+  my $day   =    7;
+
+  print 'The Day-of-Week of $month/$day/$year is: ', 
+    DayOfWeek($year, $month, $day), "\n";
+  print 'The 3-letter abbreviation of the Dow is: ', 
+    Dow($year, $month, $day), "\n";
+  print 'The 0-based index of the DoW is: ', 
+    DoW($year, $month, $day), "\n";
 
 DESCRIPTION
 
-  This module just calculates the Day-of-the-Week for any particular
-    date.  It was inspired by the clean Time::DaysInMonth module
-    written by David Muir Sharnoff <muir@idiom.com>.
+This module just calculates the Day-of-Week for any particular
+date.  It was inspired by the clean Time::DaysInMonth module
+written by David Muir Sharnoff <muir@idiom.com>.
 
 2DO
 
-        What else does DayOfWeek need?
+-     What else does DayOfWeek need?
 
 WHY?
 
-  The reason I created DayOfWeek was to support other Time modules
-    which would like to have a Day-of-Week calculated.
+The reason I created DayOfWeek was to support other Time modules
+which would like to have a Day-of-Week calculated.
 
 USAGE
 
-  DoW(<Year>, <Month>, <Day>) - Time::DayOfWeek's core function 
-    which does the calculation && returns the weekday index
-    answer in 0..6.  If no Year is supplied, 2000 C.E. is 
-    assumed.  If no Month or Day is supplied, they are set 
-    to 1.  Months are 1-based in 1..12.
+DoW(<Year>, <Month>, <Day>)
 
-    DoW() is the only function that is exported from a normal 
-      'use Time::DayOfWeek;' command.  Other functions can be imported
-      to local namespaces explicitly or with the following tags:
-        :all - every function described here
-        :dow - only DoW(), Dow(), && DayOfWeek()
-        :nam - only DayNames() && MonthNames()
-        :day - everything but MonthNames()
+Time::DayOfWeek's core function 
+which does the calculation and returns the weekday index
+answer in 0..6.  If no Year is supplied, 2000 C.E. is 
+assumed.  If no Month or Day is supplied, they are set 
+to 1.  Months are 1-based in 1..12.
 
-  Dow(<Year>, <Month>, <Day>) - same as above but returns
-    3-letter day abbreviations in 'Sun'..'Sat'.
+DoW() is the only function that is exported from a normal 
+'use Time::DayOfWeek;' command.  Other functions can be imported
+to local namespaces explicitly or with the following tags:
 
-  DayOfWeek(<Year>, <Month>, <Day>) - same as above but returns
-    full day names in 'Sunday'..'Saturday'.
+    :all - every function described here
+    :dow - only DoW(), Dow(), and DayOfWeek()
+    :nam - only DayNames() and MonthNames()
+    :day - everything but MonthNames()
 
-  DayNames(<@NewDayNames>) - can override default day names
-    with the strings in @NewDayNames.  The current list of day 
-    names is returned so call DayNames() with no parameters
-    to obtain a list of the default day names.
+Dow(<Year>, <Month>, <Day>)
 
-    An example call is:
-      DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles',
-                             'Jueves', 'Viernes', 'Sabado');
+same as above but returns 3-letter day abbreviations in 'Sun'..'Sat'.
 
-  MonthNames(<@NewMonthNames>) - has also been included to 
-    provide a centralized name set.  Just like DayNames(), 
-    this function returns the current list of month names
-    so call MonthNames() with no parameters to obtain a list
-    of the default month names.
+DayOfWeek(<Year>, <Month>, <Day>)
+
+same as above but returns full day names in 'Sunday'..'Saturday'.
+
+DayNames(<@NewDayNames>)
+
+can override default day names
+with the strings in @NewDayNames.  The current list of day 
+names is returned so call DayNames() with no parameters
+to obtain a list of the default day names.
+
+An example call is:
+
+    DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles',
+                           'Jueves', 'Viernes', 'Sabado');
+
+MonthNames(<@NewMonthNames>)
+
+has also been included to 
+provide a centralized name set.  Just like DayNames(), 
+this function returns the current list of month names
+so call MonthNames() with no parameters to obtain a list
+of the default month names.
 
 NOTES
 
-  I hope you find Time::DayOfWeek useful.  Please feel free to e-mail me 
-    any suggestions || coding tips || notes of appreciation 
-    ("app-ree-see-ay-shun").  Thank you.  TTFN.
+I hope you find Time::DayOfWeek useful.  Please feel free to e-mail
+me any suggestions or coding tips or notes of appreciation 
+("app-ree-see-ay-shun").  Thank you.  TTFN.
 
 CHANGES
 
-  Revision history for Perl extension Time::DayOfWeek:
+Revision history for Perl extension Time::DayOfWeek:
+
+- 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
+
+* updated and
 
 - 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
 
-  * removed indenting from POD NAME field
+* removed indenting from POD NAME field
 
 - 1.0.3CB7PxT  Thu Dec 11 07:25:59:29 2003
 
-  * added month name data && tidied up for release
+* added month name data and tidied up for release
 
 - 1.0.3C7IOam  Sun Dec  7 18:24:36:48 2003
 
-  * wrote pod && made tests
+* wrote pod and made tests
 
 - 1.0.3C7Exdx  Sun Dec  7 14:59:39:59 2003
 
-  * original version
+* original version
 
 INSTALL
 
-  Please run:
-        `perl -MCPAN -e "install Time::DayOfWeek"`
-    or uncompress the package && run the standard:
-        `perl Makefile.PL; make; make test; make install`
+Please run:
+      `perl -MCPAN -e "install Time::DayOfWeek"`
+  or uncompress the package and run the standard:
+      `perl Makefile.PL; make; make test; make install`
 
 FILES
 
-  Time::DayOfWeek requires:
-    Carp                to allow errors to croak() from calling sub
+Time::DayOfWeek requires:
+  Carp                to allow errors to croak() from calling sub
 
 LICENSE
 
-  Most source code should be Free!
-    Code I have lawful authority over is && shall be!
-  Copyright: (c) 2003, Pip Stuart.  All rights reserved.
-  Copyleft :  I license this software under the GNU General Public
-    License (version 2).  Please consult the Free Software Foundation
-    (http://www.fsf.org) for important information about your freedom.
+Most source code should be Free!
+  Code I have lawful authority over is and shall be!
+Copyright: (c) 2003, Pip Stuart.  All rights reserved.
+Copyleft :  I license this software under the GNU General Public
+  License (version 2).  Please consult the Free Software Foundation
+  (http://www.fsf.org) for important information about your freedom.
 
 AUTHOR
 
-  Pip Stuart <Pip@CPAN.org>
+Pip Stuart <Pip@CPAN.org>
 

@@ -4,5 +4,6 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
   'NAME'         => 'Time::DayOfWeek',
   'VERSION_FROM' => 'DayOfWeek.pm', # finds $VERSION
+  'ABSTRACT'     => 'calculate which Day-of-Week a date is',
   'dist'         => { 'COMPRESS' => 'gzip', 'SUFFIX' => 'tgz' },
 );

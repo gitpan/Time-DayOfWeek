@@ -7,129 +7,148 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-  This documention refers to version 1.0.3CCA4sO of 
-    Time::DayOfWeek, which was released on Fri Dec 12 10:04:54:24 2003.
+This documention refers to version 1.0.3CNH7Fs of 
+Time::DayOfWeek, which was released on Tue Dec 23 17:07:15:54 2003.
 
 =head1 SYNOPSIS
 
-    use Time::DayOfWeek;
-    
-    my $year  = 2003;
-    my $month =   12;
-    my $day   =    7;
-    print 'The Day-of-Week of $month/$day/$year is: ', 
-      DayOfWeek($year, $month, $day), "\n";
-    print 'The 3-letter abbreviation of the Dow is: ', 
-      Dow($year, $month, $day), "\n";
-    print 'The 0-based index of the DoW is: ', 
-      DoW($year, $month, $day), "\n";
+  use Time::DayOfWeek qw(:dow);
+  
+  my $year  = 2003;
+  my $month =   12;
+  my $day   =    7;
+
+  print 'The Day-of-Week of $month/$day/$year is: ', 
+    DayOfWeek($year, $month, $day), "\n";
+  print 'The 3-letter abbreviation of the Dow is: ', 
+    Dow($year, $month, $day), "\n";
+  print 'The 0-based index of the DoW is: ', 
+    DoW($year, $month, $day), "\n";
 
 =head1 DESCRIPTION
 
-  This module just calculates the Day-of-the-Week for any particular
-    date.  It was inspired by the clean Time::DaysInMonth module
-    written by David Muir Sharnoff <muir@idiom.com>.
+This module just calculates the Day-of-Week for any particular
+date.  It was inspired by the clean Time::DaysInMonth module
+written by David Muir Sharnoff <muir@idiom.com>.
 
 =head1 2DO
 
-        What else does DayOfWeek need?
+=over 2
+
+=item -     What else does DayOfWeek need?
+
+=back
 
 =head1 WHY?
 
-  The reason I created DayOfWeek was to support other Time modules
-    which would like to have a Day-of-Week calculated.
+The reason I created DayOfWeek was to support other Time modules
+which would like to have a Day-of-Week calculated.
 
 =head1 USAGE
 
-  DoW(<Year>, <Month>, <Day>) - Time::DayOfWeek's core function 
-    which does the calculation && returns the weekday index
-    answer in 0..6.  If no Year is supplied, 2000 C.E. is 
-    assumed.  If no Month or Day is supplied, they are set 
-    to 1.  Months are 1-based in 1..12.
+=head2 DoW(<Year>, <Month>, <Day>)
 
-    DoW() is the only function that is exported from a normal 
-      'use Time::DayOfWeek;' command.  Other functions can be imported
-      to local namespaces explicitly or with the following tags:
-        :all - every function described here
-        :dow - only DoW(), Dow(), && DayOfWeek()
-        :nam - only DayNames() && MonthNames()
-        :day - everything but MonthNames()
+Time::DayOfWeek's core function 
+which does the calculation and returns the weekday index
+answer in 0..6.  If no Year is supplied, 2000 C.E. is 
+assumed.  If no Month or Day is supplied, they are set 
+to 1.  Months are 1-based in 1..12.
 
-  Dow(<Year>, <Month>, <Day>) - same as above but returns
-    3-letter day abbreviations in 'Sun'..'Sat'.
+DoW() is the only function that is exported from a normal 
+'use Time::DayOfWeek;' command.  Other functions can be imported
+to local namespaces explicitly or with the following tags:
 
-  DayOfWeek(<Year>, <Month>, <Day>) - same as above but returns
-    full day names in 'Sunday'..'Saturday'.
+    :all - every function described here
+    :dow - only DoW(), Dow(), and DayOfWeek()
+    :nam - only DayNames() and MonthNames()
+    :day - everything but MonthNames()
 
-  DayNames(<@NewDayNames>) - can override default day names
-    with the strings in @NewDayNames.  The current list of day 
-    names is returned so call DayNames() with no parameters
-    to obtain a list of the default day names.
+=head2 Dow(<Year>, <Month>, <Day>)
 
-    An example call is:
-      DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles',
-                             'Jueves', 'Viernes', 'Sabado');
+same as above but returns 3-letter day abbreviations in 'Sun'..'Sat'.
 
-  MonthNames(<@NewMonthNames>) - has also been included to 
-    provide a centralized name set.  Just like DayNames(), 
-    this function returns the current list of month names
-    so call MonthNames() with no parameters to obtain a list
-    of the default month names.
+=head2 DayOfWeek(<Year>, <Month>, <Day>)
+
+same as above but returns full day names in 'Sunday'..'Saturday'.
+
+=head2 DayNames(<@NewDayNames>)
+
+can override default day names
+with the strings in @NewDayNames.  The current list of day 
+names is returned so call DayNames() with no parameters
+to obtain a list of the default day names.
+
+An example call is:
+
+    DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles',
+                           'Jueves', 'Viernes', 'Sabado');
+
+=head2 MonthNames(<@NewMonthNames>)
+
+has also been included to 
+provide a centralized name set.  Just like DayNames(), 
+this function returns the current list of month names
+so call MonthNames() with no parameters to obtain a list
+of the default month names.
 
 =head1 NOTES
 
-  I hope you find Time::DayOfWeek useful.  Please feel free to e-mail me 
-    any suggestions || coding tips || notes of appreciation 
-    ("app-ree-see-ay-shun").  Thank you.  TTFN.
+I hope you find Time::DayOfWeek useful.  Please feel free to e-mail
+me any suggestions or coding tips or notes of appreciation 
+("app-ree-see-ay-shun").  Thank you.  TTFN.
 
 =head1 CHANGES
 
-  Revision history for Perl extension Time::DayOfWeek:
+Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
 
+=item - 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
+
+* updated and
+
 =item - 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
 
-  * removed indenting from POD NAME field
+* removed indenting from POD NAME field
 
 =item - 1.0.3CB7PxT  Thu Dec 11 07:25:59:29 2003
 
-  * added month name data && tidied up for release
+* added month name data and tidied up for release
 
 =item - 1.0.3C7IOam  Sun Dec  7 18:24:36:48 2003
 
-  * wrote pod && made tests
+* wrote pod and made tests
 
 =item - 1.0.3C7Exdx  Sun Dec  7 14:59:39:59 2003
 
-  * original version
+* original version
 
 =back
 
 =head1 INSTALL
 
-  Please run:
-        `perl -MCPAN -e "install Time::DayOfWeek"`
-    or uncompress the package && run the standard:
-        `perl Makefile.PL; make; make test; make install`
+Please run:
+      `perl -MCPAN -e "install Time::DayOfWeek"`
+  or uncompress the package and run the standard:
+      `perl Makefile.PL; make; make test; make install`
 
 =head1 FILES
 
-  Time::DayOfWeek requires:
-    Carp                to allow errors to croak() from calling sub
+Time::DayOfWeek requires:
+  Carp                to allow errors to croak() from calling sub
 
 =head1 LICENSE
 
-  Most source code should be Free!
-    Code I have lawful authority over is && shall be!
-  Copyright: (c) 2003, Pip Stuart.  All rights reserved.
-  Copyleft :  I license this software under the GNU General Public
-    License (version 2).  Please consult the Free Software Foundation
-    (http://www.fsf.org) for important information about your freedom.
+Most source code should be Free!
+  Code I have lawful authority over is and shall be!
+Copyright: (c) 2003, Pip Stuart.  All rights reserved.
+Copyleft :  I license this software under the GNU General Public
+  License (version 2).  Please consult the Free Software Foundation
+  (http://www.fsf.org) for important information about your freedom.
 
 =head1 AUTHOR
 
-  Pip Stuart <Pip@CPAN.org>
+Pip Stuart <Pip@CPAN.org>
 
 =cut
 
@@ -138,10 +157,10 @@ require Exporter;
 use strict;
 use base qw( Exporter );
 use Carp;
-our $VERSION     = '1.0.3CCA4sO'; # major . minor . PipTimeStamp
-our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major && minor
-# See http://Ax9.org/pt?$PTVR && `perldoc Time::PT`
-# only export cnv() for 'use Time::DayOfWeek;' && all other stuff optionally
+our $VERSION     = '1.0.3CNH7Fs'; # major . minor . PipTimeStamp
+our $PTVR        = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # strip major and minor
+# See http://Ax9.org/pt?$PTVR and `perldoc Time::PT`
+# only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
 our @EXPORT      =              qw( DoW                                   );
 our @EXPORT_OK   =              qw(     Dow DayOfWeek DayNames MonthNames );
 our %EXPORT_TAGS = ( 'all' => [ qw( DoW Dow DayOfWeek DayNames MonthNames ) ],
@@ -154,7 +173,7 @@ my @Day  = (); push(@Day, substr($_, 0, 3)) foreach(@Days);
 my @Months = ( qw( January February March     April   May      June 
                    July    August   September October November December ) );
 
-sub DoW { # calculate the day-of-the-week from the Year, Month, && Day
+sub DoW { # calculate the day-of-the-week from the Year, Month, and Day
   my $year = shift; $year = 2000 unless(defined $year);
   my $mont = shift; $mont =    1 unless(defined $mont); # 1..12
   my $daay = shift; $daay =    1 unless(defined $daay); # 1..31
