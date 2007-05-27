@@ -1,161 +1,125 @@
-!/usr/bin/perl -w
- 3C7Exdx - Time::DayOfWeek.pm created by Pip@CPAN.Org to 
-   simply tell what day of the week a specific date is.
-
 NAME
-
-Time::DayOfWeek - calculate which Day-of-Week a date is
+    Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
-
-This documentation refers to version 1.2.4CCMRd5 of 
-Time::DayOfWeek, which was released on Sun Dec 12 22:27:39:05 2004.
+    This documentation refers to version 1.4.75R5ulZ of Time::DayOfWeek,
+    which was released on Sun May 27 05:56:47:35 2007.
 
 SYNOPSIS
+      #!/usr/bin/perl
+      use strict; use warnings;
+      use Time::DayOfWeek qw(:dow);
 
-  use Time::DayOfWeek qw(:dow);
-  
-  my $year  = 2003;
-  my $month =   12;
-  my $day   =    7;
+      my($year, $month, $day)=(2003, 12, 7);
 
-  print 'The Day-of-Week of $month/$day/$year is: ', 
-    DayOfWeek($year, $month, $day), "\n";
-  print 'The 3-letter abbreviation of the Dow is: ', 
-    Dow($year, $month, $day), "\n";
-  print 'The 0-based index of the DoW is: ', 
-    DoW($year, $month, $day), "\n";
+      print "The Day-of-Week of $year/$month/$day (YMD) is: ",
+        DayOfWeek($year, $month, $day), "\n";
+      print 'The 3-letter abbreviation       of the Dow is: ',
+        Dow(      $year, $month, $day), "\n";
+      print 'The 0-based  index              of the DoW is: ',
+        DoW(      $year, $month, $day), "\n";
 
 DESCRIPTION
-
-This module just calculates the Day-of-Week for any particular
-date.  It was inspired by the clean L<Time::DaysInMonth> module
-written by David Muir Sharnoff <muir@idiom.com>.
+    This module just calculates the Day-of-Week for any particular date. It
+    was inspired by the clean Time::DaysInMonth module written by David Muir
+    Sharnoff <Muir@Idiom.Com>.
 
 2DO
+    - What else does DayOfWeek need?
 
--     What else does DayOfWeek need?
-
-WHY?
-
-The reason I created DayOfWeek was to support other Time modules
-which would like to have a Day-of-Week calculated.
+PURPOSE
+    The reason I created DayOfWeek was to support other Time modules which
+    would like to have a Day-of-Week calculated.
 
 USAGE
+  DoW(<Year>, <Month>, <Day>)
+    Time::DayOfWeek's core function which does the calculation and returns
+    the weekday index answer in 0..6. If no Year is supplied, 2000 C.E. is
+    assumed. If no Month or Day is supplied, they are set to 1. Months are
+    1-based in 1..12.
 
-DoW(<Year>, <Month>, <Day>)
+    DoW() is the only function that is exported from a normal 'use
+    Time::DayOfWeek;' command. Other functions can be imported to local
+    namespaces explicitly or with the following tags:
 
-Time::DayOfWeek's core function 
-which does the calculation and returns the weekday index
-answer in 0..6.  If no Year is supplied, 2000 C.E. is 
-assumed.  If no Month or Day is supplied, they are set 
-to 1.  Months are 1-based in 1..12.
+      :all - every function described here
+      :dow - only DoW(), Dow(), and DayOfWeek()
+      :nam - only DayNames() and MonthNames()
+      :day - everything but MonthNames()
 
-DoW() is the only function that is exported from a normal 
-'use Time::DayOfWeek;' command.  Other functions can be imported
-to local namespaces explicitly or with the following tags:
+  Dow(<Year>, <Month>, <Day>)
+    same as above but returns 3-letter day abbreviations in 'Sun'..'Sat'.
 
-    :all - every function described here
-    :dow - only DoW(), Dow(), and DayOfWeek()
-    :nam - only DayNames() and MonthNames()
-    :day - everything but MonthNames()
+  DayOfWeek(<Year>, <Month>, <Day>)
+    same as above but returns full day names in 'Sunday'..'Saturday'.
 
-Dow(<Year>, <Month>, <Day>)
+  DayNames(<@NewDayNames>)
+    can override default day names with the strings in @NewDayNames. The
+    current list of day names is returned so call DayNames() with no
+    parameters to obtain a list of the default day names.
 
-same as above but returns 3-letter day abbreviations in 'Sun'..'Sat'.
+    An example call is:
 
-DayOfWeek(<Year>, <Month>, <Day>)
+      DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles', 'Jueves', 'Viernes', 'Sabado');
 
-same as above but returns full day names in 'Sunday'..'Saturday'.
-
-DayNames(<@NewDayNames>)
-
-can override default day names
-with the strings in @NewDayNames.  The current list of day 
-names is returned so call DayNames() with no parameters
-to obtain a list of the default day names.
-
-An example call is:
-
-    DayNames('Domingo', 'Lunes',  'Martes',  'Miercoles',
-                           'Jueves', 'Viernes', 'Sabado');
-
-MonthNames(<@NewMonthNames>)
-
-has also been included to 
-provide a centralized name set.  Just like DayNames(), 
-this function returns the current list of month names
-so call MonthNames() with no parameters to obtain a list
-of the default month names.
-
-NOTES
-
-I hope you find Time::DayOfWeek useful.  Please feel free to e-mail
-me any suggestions or coding tips or notes of appreciation 
-("app-ree-see-ay-shun").  Thank you.  Shalom.
+  MonthNames(<@NewMonthNames>)
+    has also been included to provide a centralized name set. Just like
+    DayNames(), this function returns the current list of month names so
+    call MonthNames() with no parameters to obtain a list of the default
+    month names.
 
 CHANGES
+    Revision history for Perl extension Time::DayOfWeek:
 
-Revision history for Perl extension Time::DayOfWeek:
+    - 1.4.75R5ulZ Sun May 27 05:56:47:35 2007
+        * added kwalitee && POD tests, bumped minor version
 
-- 1.2.4CCMRd5  Sun Dec 12 22:27:39:05 2004
+        * condensed code && moved POD to bottom
 
-* updated License
+    - 1.2.4CCMRd5 Sun Dec 12 22:27:39:05 2004
+        * updated License
 
-- 1.0.429BmYk  Mon Feb  9 11:48:34:46 2004
+    - 1.0.429BmYk Mon Feb 9 11:48:34:46 2004
+        * updated DoW param tests to turn zero month or day to one
 
-* updated DoW param tests to turn zero month or day to one
+        * updated POD to contain links
 
-* updated POD to contain links
+    - 1.0.41M4ecn Thu Jan 22 04:40:38:49 2004
+        * made bin/dow as EXE_FILES && added named month param detection
 
-- 1.0.41M4ecn  Thu Jan 22 04:40:38:49 2004
+    - 1.0.3CNH7Fs Tue Dec 23 17:07:15:54 2003
+        * removed most eccentric misspellings
 
-* made bin/dow as EXE_FILES && added named month param detection
+    - 1.0.3CCA4sO Fri Dec 12 10:04:54:24 2003
+        * removed indenting from POD NAME field
 
-- 1.0.3CNH7Fs  Tue Dec 23 17:07:15:54 2003
+    - 1.0.3CB7PxT Thu Dec 11 07:25:59:29 2003
+        * added month name data and tidied up for release
 
-* removed most eccentric misspellings
+    - 1.0.3C7IOam Sun Dec 7 18:24:36:48 2003
+        * wrote pod and made tests
 
-- 1.0.3CCA4sO  Fri Dec 12 10:04:54:24 2003
-
-* removed indenting from POD NAME field
-
-- 1.0.3CB7PxT  Thu Dec 11 07:25:59:29 2003
-
-* added month name data and tidied up for release
-
-- 1.0.3C7IOam  Sun Dec  7 18:24:36:48 2003
-
-* wrote pod and made tests
-
-- 1.0.3C7Exdx  Sun Dec  7 14:59:39:59 2003
-
-* original version
+    - 1.0.3C7Exdx Sun Dec 7 14:59:39:59 2003
+        * original version
 
 INSTALL
+    Please run:
 
-Please run:
       `perl -MCPAN -e "install Time::DayOfWeek"`
-  or uncompress the package and run the standard:
-      `perl Makefile.PL; make; make test; make install`
 
-FILES
+    or uncompress the package && run:
 
-Time::DayOfWeek requires:
-
-L<Carp>                to allow errors to croak() from calling sub
+      `perl Makefile.PL;       make;       make test;       make install`
+        or if you don't have  `make` but Module::Build is installed
+      `perl    Build.PL; perl Build; perl Build test; perl Build install`
 
 LICENSE
-
-Most source code should be Free!
-  Code I have lawful authority over is && shall be!
-Copyright: (c) 2003-2004, Pip Stuart.
-Copyleft : This software is licensed under the GNU General Public
-  License (version 2), && as such comes with NO WARRANTY.  Please
-  consult the Free Software Foundation (http://FSF.Org) for
-  important information about your freedom.
+    Most source code should be Free! Code I have lawful authority over is &&
+    shall be! Copyright: (c) 2003-2007, Pip Stuart. Copyleft : This software
+    is licensed under the GNU General Public License (version 2). Please
+    consult the Free Software Foundation (HTTP://FSF.Org) for important
+    information about your freedom.
 
 AUTHOR
-
-Pip Stuart <Pip@CPAN.Org>
+    Pip Stuart <Pip@CPAN.Org>
 

@@ -1,7 +1,13 @@
 DayOfWeek.pm
 MANIFEST
-test.pl
+t/01days.t
 bin/dow
+t/00pod.t
+t/00podc.t
+ex/synopsis.pl
 MANIFEST.SKIP
 README
+CHANGES
+META.yml
 Makefile.PL
+Build.PL
