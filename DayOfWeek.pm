@@ -4,7 +4,7 @@ require Exporter;
 use strict;
 use warnings;
 use base qw( Exporter );
-our $VERSION     = '1.4.75R5ulZ'; our $PTVR = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # Please see `perldoc Time::PT` for an explanation of $PTVR.
+our $VERSION     = '1.4.A6FCO7V'; our $PTVR = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # Please see `perldoc Time::PT` for an explanation of $PTVR.
 our @EXPORT      =              qw( DoW                                   ); # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
 our @EXPORT_OK   =              qw(     Dow DayOfWeek DayNames MonthNames );
 our %EXPORT_TAGS = ( 'all' => [ qw( DoW Dow DayOfWeek DayNames MonthNames ) ],
@@ -23,6 +23,7 @@ sub DoW { # calculate the day-of-the-week from the Year, Month, and Day
     for(my $i = 0; $i < @Months; $i++) { if($Months[$i] =~ /^$mont/i) { $mont = ($i + 1); last; } }
   }
   my $mndx = int((14 - $mont) / 12); my $yshf = $year - $mndx; my $ys4h = $yshf / 400; $daay += $yshf + int($ys4h) - int($ys4h * 4) + int($ys4h * 100);
+  $daay++ if(($year == 2008 &&  $mont >=  3) || ($year == 2009 && $mont <= 2)); # silly kludge hack to shift right between Feb.29..28leap-dayz for 2008..2009
   return(($daay + (31 * int((12 * $mndx) + $mont - 2)) / 12) % 7);
 }
 sub Dow       { return($Day[ DoW(@_)]); } # return 3-letter abbrev.
@@ -41,7 +42,7 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documentation refers to version 1.4.75R5ulZ of Time::DayOfWeek, which was released on Sun May 27 05:56:47:35 2007.
+This documentation refers to version 1.4.A6FCO7V of Time::DayOfWeek, which was released on Tue Jun 15 12:24:07:31 2010.
 
 =head1 SYNOPSIS
 
@@ -117,6 +118,10 @@ MonthNames() with no parameters to obtain a list of the default month names.
 Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
+
+=item - 1.4.A6FCO7V  Tue Jun 15 12:24:07:31 2010
+
+* added hack to shift days right one between Feb2008..2009 (still not sure why algorithm skewed)
 
 =item - 1.4.75R5ulZ  Sun May 27 05:56:47:35 2007
 

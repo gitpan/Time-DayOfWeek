@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name: Time-DayOfWeek
 abstract: calculate which Day-of-Week a date is
-version: 1.4.75R5ulZ
+version: 1.4.A6FCO7V
 author:
   - Pip Stuart <Pip@CPAN.Org>
 license: gpl
@@ -17,4 +17,4 @@ urls:
 meta-spec:
   version: 1.3
   url: HTTP://Module-Build.SourceForge.Net/META-spec-v1.3.html
-generated_by: e pkg v1.0.75L6d1c
+generated_by: e pkg v1.0.A2RJrKV

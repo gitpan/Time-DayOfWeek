@@ -1,6 +1,10 @@
 CHANGES
     Revision history for Perl extension Time::DayOfWeek:
 
+    - 1.4.A6FCO7V Tue Jun 15 12:24:07:31 2010
+        * added hack to shift days right one between Feb2008..2009 (still
+        not sure why algorithm skewed)
+
     - 1.4.75R5ulZ Sun May 27 05:56:47:35 2007
         * added kwalitee && POD tests, bumped minor version
 
