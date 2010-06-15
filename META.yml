@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name: Time-DayOfWeek
 abstract: calculate which Day-of-Week a date is
-version: 1.4.A6FCO7V
+version: 1.6.A6FFxZB
 author:
   - Pip Stuart <Pip@CPAN.Org>
 license: gpl

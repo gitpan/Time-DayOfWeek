@@ -2,8 +2,8 @@ NAME
     Time::DayOfWeek - calculate which Day-of-Week a date is
 
 VERSION
-    This documentation refers to version 1.4.A6FCO7V of Time::DayOfWeek,
-    which was released on Tue Jun 15 12:24:07:31 2010.
+    This documentation refers to version 1.6.A6FFxZB of Time::DayOfWeek,
+    which was released on Tue Jun 15 15:59:35:11 2010.
 
 SYNOPSIS
       #!/usr/bin/perl
@@ -70,6 +70,9 @@ USAGE
 
 CHANGES
     Revision history for Perl extension Time::DayOfWeek:
+
+    - 1.6.A6FFxZB Tue Jun 15 15:59:35:11 2010
+        * had to bump minor version to keep them ascending
 
     - 1.4.A6FCO7V Tue Jun 15 12:24:07:31 2010
         * added hack to shift days right one between Feb2008..2009 (still

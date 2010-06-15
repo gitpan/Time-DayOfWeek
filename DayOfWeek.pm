@@ -4,7 +4,7 @@ require Exporter;
 use strict;
 use warnings;
 use base qw( Exporter );
-our $VERSION     = '1.4.A6FCO7V'; our $PTVR = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # Please see `perldoc Time::PT` for an explanation of $PTVR.
+our $VERSION     = '1.6.A6FFxZB'; our $PTVR = $VERSION; $PTVR =~ s/^\d+\.\d+\.//; # Please see `perldoc Time::PT` for an explanation of $PTVR.
 our @EXPORT      =              qw( DoW                                   ); # only export DoW() for 'use Time::DayOfWeek;' and all other stuff optionally
 our @EXPORT_OK   =              qw(     Dow DayOfWeek DayNames MonthNames );
 our %EXPORT_TAGS = ( 'all' => [ qw( DoW Dow DayOfWeek DayNames MonthNames ) ],
@@ -42,7 +42,7 @@ Time::DayOfWeek - calculate which Day-of-Week a date is
 
 =head1 VERSION
 
-This documentation refers to version 1.4.A6FCO7V of Time::DayOfWeek, which was released on Tue Jun 15 12:24:07:31 2010.
+This documentation refers to version 1.6.A6FFxZB of Time::DayOfWeek, which was released on Tue Jun 15 15:59:35:11 2010.
 
 =head1 SYNOPSIS
 
@@ -118,6 +118,10 @@ MonthNames() with no parameters to obtain a list of the default month names.
 Revision history for Perl extension Time::DayOfWeek:
 
 =over 4
+
+=item - 1.6.A6FFxZB  Tue Jun 15 15:59:35:11 2010
+
+* had to bump minor version to keep them ascending
 
 =item - 1.4.A6FCO7V  Tue Jun 15 12:24:07:31 2010
 
